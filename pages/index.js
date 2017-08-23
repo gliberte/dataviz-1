@@ -1,8 +1,12 @@
 import Head from 'next/head'
 import Highcharts from 'highcharts'
+import moment from 'moment'
 
 class Index extends React.Component{
     componentDidMount() {
+        console.log(+moment().add(1,'days'))
+        const fechas = [1,2,3,4,5,6,7].map(day=>[+moment().add(day,'days'),Math.random()*200])
+        console.log(fechas)
         Highcharts.chart('grafica',{
             xAxis:{
                 type:'datetime'
@@ -10,7 +14,7 @@ class Index extends React.Component{
             series:[
                 {
                     name:"peso",
-                    data:[[1246406400000,205],[1246492800000,207],[1246579200000,209]]
+                    data:fechas
                 }
             ]
         })
