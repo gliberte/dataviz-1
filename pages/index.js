@@ -21,7 +21,7 @@ class Index extends React.Component{
             series:[
                 {
                     name:"peso",
-                    data:this.props.registros
+                    data:this.state.registros
                 }
             ]
         })
@@ -78,10 +78,5 @@ class Index extends React.Component{
         );
     }
 }
-Index.getInitialProps = function (params) {
-    const registros = [1,2,3,4,5,6,7].map(day=>[+moment().add(day,'days'),Math.random()*200])
-    return {
-        registros
-    }
-}
+
 export default Index
