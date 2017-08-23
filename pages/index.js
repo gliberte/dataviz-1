@@ -1,22 +1,32 @@
 import Head from 'next/head'
 import Grafica from '../componentes/Grafica'
 import moment from 'moment'
-
+import Tabla from '../componentes/Tabla'
+import Form from '../componentes/Form'
 
 moment.locale('es')
 class Index extends React.Component{
     state = {
-        registros:[]
+        registros:[],
+        modal:false
+    }
+    componentDidMount() {
+        $('.modal').modal();
     }
     
-    
     onAgregarRegistro = ()=>{
+
+        Materialize.toast('I am a toast!', 4000)
+        this.setState({
+            modal:true
+        })
         const nuevoregistro = [+moment(),Math.random()*200]
         this.setState({
             registros:[...this.state.registros,nuevoregistro]
         })
         console.log(this.state.registros)
     }
+    
     render(){
         return(
             <div>
@@ -33,7 +43,8 @@ class Index extends React.Component{
                         <a href="#" className="brand-logo">Mi Registro de Peso</a>
                     </nav>
                 </header>
-                <meain>
+                <main>
+                    <Form visible={this.state.modal} onCerrar={()=>this.setState({modal:false})}/>
                     <div className="valign-wrapper">
                         <h2>Registro Diario de Peso</h2>
                     </div>
@@ -43,38 +54,22 @@ class Index extends React.Component{
                             
                         </div>
                         <div className="col l6 m12 s12">
-                            <a className="btn-floating btn-large waves-effect waves-light red botonadd" onClick={this.onAgregarRegistro}><i className="material-icons">add</i></a>
-                            <table className="z-depth-2 hoverable">
-                                <thead>
-                                    <tr>
-                                        <th>Fecha</th>
-                                        <th>Peso (Lbs)</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                    
-                                        {this.state.registros.map((registro,index)=>(
-                                            <tr key={index}>
-                                                <td>{moment(registro[0]).format('LLLL')}</td>
-                                                <td>{registro[1]} lbs</td>
-                                            </tr>
-                                            
-                                        ))}
-                                
-                                </tbody>
-                                
-                            </table>
+                            <a className="btn-floating btn-large waves-effect waves-light red botonadd"  onClick={this.onAgregarRegistro}><i className="material-icons">add</i></a>
+                            
+                            <Tabla registros={this.state.registros}/>
                         </div>
                     </div>
-                </meain>
+                </main>
                 <style jsx>{
                     `.botonadd{
                         position: absolute;
                         top:80%;
                         right: 10%;
+                        z-index:20;
                     }
                     `
                 }</style>
+                
             </div>
         );
     }
