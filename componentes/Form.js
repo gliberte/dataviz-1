@@ -12,8 +12,8 @@ export default class Form extends React.Component{
     }
     render(){
         return(
-            <div>
-            <div className={`form-container ${this.props.visible ? "form-container-visible":""} z-depth-2 light-green lighten-2`}>
+            <div className="row">
+            <div className={`form-container ${this.props.visible ? "form-container-visible":""} col s4 offset-s4 z-depth-2 light-green lighten-2`}>
                 <form>
                     <div className="input-field">
                         <input id="fecha" name="fecha" type="text" className="datepicker"/>
@@ -37,9 +37,7 @@ export default class Form extends React.Component{
                         .form-container{
                             position: absolute;
                             top:-500px;
-                            left: 40%;
                             z-index:20;
-                            min-width:20%;
                             padding:20px;
                             font-weight:bold;
                             transition:all 0.3s ease-in-out;
