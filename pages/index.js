@@ -11,6 +11,13 @@ class Index extends React.Component{
         modal:false
     }
     componentDidMount() {
+        if(localStorage.getItem('registros')){
+            const registros = JSON.parse(localStorage.getItem('registros'))
+            this.setState({
+                registros
+            })
+        }
+        
         $('.modal').modal();
     }
     
@@ -24,9 +31,12 @@ class Index extends React.Component{
     onAceptarForm = ({fecha,peso})=>{
         console.log(fecha,peso)
         const nuevoregistro = [fecha,+peso]
+        const newstate = [...this.state.registros,nuevoregistro]
+        localStorage.setItem('registros',JSON.stringify(newstate))
         this.setState({
-            registros:[...this.state.registros,nuevoregistro]
+            registros:newstate
         })
+        
     }
     
     render(){
@@ -47,9 +57,7 @@ class Index extends React.Component{
                 </header>
                 <main>
                     <Form visible={this.state.modal} onCerrar={()=>this.setState({modal:false})} onAceptar={this.onAceptarForm}/>
-                    <div className="valign-wrapper">
-                        <h2>Registro Diario de Peso</h2>
-                    </div>
+                   
                     <div className="row">
                         <div className="col l6 m12 s12">
                             <Grafica registros={this.state.registros}/>

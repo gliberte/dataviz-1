@@ -10,7 +10,16 @@ export default class Class extends React.Component {
     }
     iniciarGrafica = (nextProps)=>{
         Highcharts.chart('grafica',{
+            title:{
+                text:"Registro de Peso"
+            },
+            yAxis:{
+                text:"Libras"
+            },
             xAxis:{
+                title:{
+                    text:"Fechas"
+                },
                 type:'datetime',
                 startOnTick:true
             },
