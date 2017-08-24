@@ -16,15 +16,17 @@ class Index extends React.Component{
     
     onAgregarRegistro = ()=>{
 
-        Materialize.toast('I am a toast!', 4000)
         this.setState({
             modal:true
         })
-        const nuevoregistro = [+moment(),Math.random()*200]
+   
+    }
+    onAceptarForm = ({fecha,peso})=>{
+        console.log(fecha,peso)
+        const nuevoregistro = [fecha,+peso]
         this.setState({
             registros:[...this.state.registros,nuevoregistro]
         })
-        console.log(this.state.registros)
     }
     
     render(){
@@ -44,7 +46,7 @@ class Index extends React.Component{
                     </nav>
                 </header>
                 <main>
-                    <Form visible={this.state.modal} onCerrar={()=>this.setState({modal:false})}/>
+                    <Form visible={this.state.modal} onCerrar={()=>this.setState({modal:false})} onAceptar={this.onAceptarForm}/>
                     <div className="valign-wrapper">
                         <h2>Registro Diario de Peso</h2>
                     </div>
