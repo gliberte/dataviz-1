@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "deploy": "now alias https://proyecto1-ktdxrakqnc.now.sh mi-registro-peso"
   },
   "keywords": [],
   "author": "",
@@ -18,6 +19,7 @@
     "moment": "^2.18.1",
     "next": "^3.0.6",
     "react": "^15.6.1",
+    "react-datepicker": "^0.53.0",
     "react-dom": "^15.6.1"
   }
 }

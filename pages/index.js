@@ -38,6 +38,12 @@ class Index extends React.Component{
         })
         
     }
+    reiniciarRegistros = ()=>{
+        localStorage.clear()
+        this.setState({
+            registros:[]
+        })
+    }
     
     render(){
         return(
@@ -47,6 +53,7 @@ class Index extends React.Component{
                     <meta name="viewport" content="initial-scale=1.0,width=device-width"/>
                     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css"/>
                     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+                    <link rel="stylesheet" href="/static/react-datepicker.css"/>
                     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
                     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js"></script>
                 </Head>
@@ -61,6 +68,7 @@ class Index extends React.Component{
                     <div className="row">
                         <div className="col l6 m12 s12">
                             <Grafica registros={this.state.registros}/>
+                            <a className="waves-effect waves-light btn" onClick={this.reiniciarRegistros}>Reiniciar</a>
                             
                         </div>
                         <div className="col l6 m12 s12">

@@ -21,7 +21,7 @@ export default class Form extends React.Component{
     render(){
         return(
             <div className="row">
-            <div className={`form-container ${this.props.visible ? "form-container-visible":""} col s4 offset-s4 z-depth-2 light-green lighten-2`}>
+            <div className={`form-container ${this.props.visible ? "form-container-visible":""} col s10 m6 l6 offset-s1  offset-m3 offset-l3 z-depth-2 light-green lighten-2`}>
                 <form>
                     <div className="input-field">
                         <input id="fecha" name="fecha" type="date"  onChange={this.onChange}/>
@@ -32,7 +32,7 @@ export default class Form extends React.Component{
                         <label htmlFor="peso" className="teal-text">Peso</label>
                     </div>
                     <div className="action">
-                        <a className="waves-effect-waves light btn" onClick={()=>this.props.onAceptar(this.state)}>Aceptar</a>
+                        <a className="waves-effect-waves light btn" onClick={()=>this.props.onAceptar()}>Aceptar</a>
                         <a className="waves-effect-waves light btn" onClick={this.props.onCerrar}>Cerrar</a>
 
                     </div>
