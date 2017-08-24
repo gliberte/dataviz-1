@@ -18,6 +18,7 @@ export default class Form extends React.Component{
            
         }
     }
+    
     render(){
         return(
             <div className="row">
@@ -32,7 +33,7 @@ export default class Form extends React.Component{
                         <label htmlFor="peso" className="teal-text">Peso</label>
                     </div>
                     <div className="action">
-                        <a className="waves-effect-waves light btn" onClick={()=>this.props.onAceptar()}>Aceptar</a>
+                        <a className="waves-effect-waves light btn" onClick={()=>this.props.onAceptar(this.state)}>Aceptar</a>
                         <a className="waves-effect-waves light btn" onClick={this.props.onCerrar}>Cerrar</a>
 
                     </div>

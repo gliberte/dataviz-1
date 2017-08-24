@@ -6,8 +6,7 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start",
-    "deploy": "now alias https://proyecto1-ktdxrakqnc.now.sh mi-registro-peso"
+    "start": "next start"
   },
   "keywords": [],
   "author": "",
