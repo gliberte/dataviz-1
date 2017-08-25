@@ -3,6 +3,7 @@ import Grafica from '../componentes/Grafica'
 import moment from 'moment'
 import Tabla from '../componentes/Tabla'
 import Form from '../componentes/Form'
+import Link from 'next/link'
 
 moment.locale('es')
 class Index extends React.Component{
@@ -53,13 +54,15 @@ class Index extends React.Component{
                     <meta name="viewport" content="initial-scale=1.0,width=device-width"/>
                     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css"/>
                     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
-                    <link rel="stylesheet" href="/static/react-datepicker.css"/>
                     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
                     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js"></script>
                 </Head>
                 <header>
                     <nav className="nav-wrapper cyan">
                         <a href="#" className="brand-logo">Mi Registro de Peso</a>
+                        <ul className="right">
+                            <li><Link href="index2"><a>Index 2</a></Link></li>
+                        </ul>
                     </nav>
                 </header>
                 <main>
